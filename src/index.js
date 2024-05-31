@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const io = socektio(server);
 const PORT = process.env.PORT || 3000;
 const publicDirectoryPath = path.join(__dirname,'../public')
-
+const Filter = require('bad-words')
 app.use(express.static(publicDirectoryPath))
 
 // let count = 0;
@@ -22,14 +22,28 @@ io.on('connection',(socket)=>{
     socket.emit('message',"Welcome")
     socket.broadcast.emit('message'," A new user Entered")
 
-    socket.on('sendmessage',(message)=>{
+    socket.on('sendmessage',(message ,callback)=>{
+        const filter = new Filter()
+
+
+        if(filter.isProfane(message)){
+            return callback('Profanity is not allowed')
+        }
         io.emit('message',message)
+        callback()
     })
 socket.on('disconnect',()=>{
    io.emit('message','A user has left')
 })
 
+socket.on('sendLocation',(data,callback)=>{
+   let message = `https://google.com/maps?q=${data.lat},${data.long}`
+   io.emit('message',message);
+   callback()
 })
+})
+
+
 
 server.listen(PORT, ()=>{
     console.log(`Server running on ${PORT}!`);
