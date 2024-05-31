@@ -15,3 +15,4 @@
 15.using navigator.geolocation.getCurrentPosition to get current location of user.
 16.sending the user current location to other users in the form of link
 17.Sending acknowledgement message to the client or to the server
+18.Rendering Messages to the window using Mustache library.
