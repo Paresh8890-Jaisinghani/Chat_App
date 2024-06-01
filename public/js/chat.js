@@ -6,15 +6,28 @@ const btn_location = document.getElementById("btn_location")
 const messages = document.getElementById("messages")
 
 
+
 const messagetemp = document.getElementById("message-template").innerHTML
+const locationtemp = document.getElementById("location-template").innerHTML
 
 socket.on('message', (message) => {
     console.log(message)
     const html = Mustache.render(messagetemp,{
-        message
+        message : message.text,
+        createdAt : moment(message.createdAt).format('h:mm a')
     })
     messages.insertAdjacentHTML('beforeend',html)
 })
+
+socket.on('locationmessage',(url)=>{
+    console.log(url);
+    const html = Mustache.render(locationtemp,{
+        url
+    })
+    messages.insertAdjacentHTML('beforeend',html);
+})
+
+
 messageform.addEventListener('submit', (ev) => {
     ev.preventDefault();
 

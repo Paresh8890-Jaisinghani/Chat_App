@@ -2,6 +2,7 @@ const path = require('path') // For taking path for our public directory
 const http = require('http')
 const express = require('express')
 const socektio = require('socket.io')
+const {generateMessage} = require('./utils/messages.js')
 
 
 const app = express();
@@ -19,8 +20,8 @@ app.use(express.static(publicDirectoryPath))
 io.on('connection', (socket) => {
     console.log("New Websocket connection")
 
-    socket.emit('message', "Welcome")
-    socket.broadcast.emit('message', " A new user Entered")
+    socket.emit('message', generateMessage('Welcone!'))
+    socket.broadcast.emit('message', generateMessage('A new user has joined!'))
 
     socket.on('sendmessage', (message, callback) => {
         const filter = new Filter()
@@ -29,18 +30,21 @@ io.on('connection', (socket) => {
         if (filter.isProfane(message)) {
             return callback('Profanity is not allowed')
         }
-        io.emit('message', message)
+        io.emit('message', generateMessage(message))
         callback()
     })
     socket.on('disconnect', () => {
-        io.emit('message', 'A user has left')
+        io.emit('message', generateMessage('A user has left!'))
     })
 
     socket.on('sendLocation', (data, callback) => {
         let message = `https://google.com/maps?q=${data.lat},${data.long}`
-        io.emit('message', message);
+        io.emit('locationmessage', message);
         callback()
+
+        
     })
+
 })
 
 
