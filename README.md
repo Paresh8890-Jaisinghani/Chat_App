@@ -16,3 +16,5 @@
 16.sending the user current location to other users in the form of link
 17.Sending acknowledgement message to the client or to the server
 18.Rendering Messages to the window using Mustache library.
+19.sending location to the client in the form of link 
+20.creating messages.js file to send messages with timestamp
