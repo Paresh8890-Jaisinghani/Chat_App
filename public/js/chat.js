@@ -1,5 +1,5 @@
 const socket = io()
-const messageform = document.getElementById("messageform")
+const messageform = document.getElementById("message-form")
 const textmessage = document.getElementById("textmessage")
 const btnmessage = document.getElementById("btnmessage")
 const btn_location = document.getElementById("btn_location")
@@ -8,7 +8,7 @@ const messages = document.getElementById("messages")
 
 
 const messagetemp = document.getElementById("message-template").innerHTML
-const locationtemp = document.getElementById("location-template").innerHTML
+const locationtemp = document.getElementById("location-message-template").innerHTML
 
 socket.on('message', (message) => {
     console.log(message)

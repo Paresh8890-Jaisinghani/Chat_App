@@ -18,3 +18,4 @@
 18.Rendering Messages to the window using Mustache library.
 19.sending location to the client in the form of link 
 20.creating messages.js file to send messages with timestamp
+21.styling the website and creating join page for the users
