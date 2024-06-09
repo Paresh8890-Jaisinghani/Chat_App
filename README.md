@@ -19,3 +19,6 @@
 19.sending location to the client in the form of link 
 20.creating messages.js file to send messages with timestamp
 21.styling the website and creating join page for the users
+22.Accesing username and room name from the client side using QS option in chat.html
+23.sending message to the specific room if new user entered using io.to.emit
+24.creating users.js file for some functions -- addUsers,removeUsers,getUsers,getUsersinroom

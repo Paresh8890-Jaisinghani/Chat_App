@@ -6,9 +6,12 @@ const btn_location = document.getElementById("btn_location")
 const messages = document.getElementById("messages")
 
 
-
+//Templates
 const messagetemp = document.getElementById("message-template").innerHTML
 const locationtemp = document.getElementById("location-message-template").innerHTML
+
+//options
+const {username,room} = Qs.parse(location.search ,{ignoreQueryPrefix : true})
 
 socket.on('message', (message) => {
     console.log(message)
@@ -72,3 +75,6 @@ btn_location.addEventListener('click', () => {
         });
     })
 })
+
+
+socket.emit('join',{username,room});
