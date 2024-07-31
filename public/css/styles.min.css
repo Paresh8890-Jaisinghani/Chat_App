@@ -38,8 +38,8 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
-    border: none;
+    background: #5cbf61;
+    border: 2px solid black;
     color: #fff;
     font-size: 16px;
     transition: background .3s ease
