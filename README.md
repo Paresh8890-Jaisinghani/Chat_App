@@ -9,9 +9,9 @@
 9.setup socket.io connection by calling server using http method 
 10.Taking response from index.html (client side response) to the server
 11.server --> client using socket.emit()
-12.client --> server using socket.on();
+12.client --> server using socket.on(); 
 13.socket.broadcast.emit to emit everybody except the socket itself
-14.socket.on('disconnect',()=>{}) to send message to users if he leaves the chat room
+14.using socket.on('disconnect',()=>{}) inside io.on('connection') to send message to users if he leaves the chat room
 15.using navigator.geolocation.getCurrentPosition to get current location of user.
 16.sending the user current location to other users in the form of link
 17.Sending acknowledgement message to the client or to the server
