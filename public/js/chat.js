@@ -39,6 +39,8 @@ const autoScroll=()=>{
 
 }
 
+
+//event for sharing messages from server to client
 socket.on('message', (message) => {
     console.log(message)
     const html = Mustache.render(messageTemplate, {
@@ -50,6 +52,8 @@ socket.on('message', (message) => {
     autoScroll()
 })
 
+
+//event for sharing location from server to client
 socket.on('locationMessage', (message) => {
     console.log(message)
     const html = Mustache.render(locationMessageTemplate, {
@@ -70,6 +74,8 @@ socket.on('roomData',({room , users})=>{
         document.querySelector('#sidebar').innerHTML = html
 })
 
+
+//event to send messages from client to server
 $messageForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -90,6 +96,8 @@ $messageForm.addEventListener('submit', (e) => {
     })
 })
 
+
+//event to send location from client to server
 $sendLocationButton.addEventListener('click', () => {
     if (!navigator.geolocation) {
         return alert('Geolocation is not supported by your browser.')

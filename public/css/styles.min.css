@@ -19,18 +19,21 @@ body {
 }
 
 h1 {
+    text-align: center;
+    font-weight: 800;
     margin-bottom: 16px
 }
 
 label {
     display: block;
     font-size: 14px;
+    font-weight: 600;
     margin-bottom: 8px;
-    color: #777
+    color: rgb(20, 20, 20)
 }
 
 input {
-    border: 1px solid #eee;
+    border: 1px solid rgb(85, 81, 81);
     padding: 12px;
     outline: none
 }
@@ -38,15 +41,16 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #5cbf61;
-    border: 2px solid black;
+    background: #1a1a1a;
+    border: 1px solid black;
+    border-radius: 2px;
     color: #fff;
     font-size: 16px;
     transition: background .3s ease
 }
 
 button:hover {
-    background: #6b47b8
+    background: #482a8a
 }
 
 button:disabled {
