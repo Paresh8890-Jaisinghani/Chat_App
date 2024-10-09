@@ -34,6 +34,8 @@ const removeUser = (id) => {
     const index = users.findIndex((user) => user.id === id)
 
     if (index !== -1) {
+        //users.splice return an array from index 
+        //users.splice[0] return an first object to be removed
         return users.splice(index, 1)[0]
     }
 }
