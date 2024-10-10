@@ -22,3 +22,4 @@
 22.Accesing username and room name from the client side using QS option in chat.html
 23.sending message to the specific room if new user entered using io.to.emit
 24.creating users.js file for some functions -- addUsers,removeUsers,getUsers,getUsersinroom
+25.AutScroll function for scrolling at bottom
